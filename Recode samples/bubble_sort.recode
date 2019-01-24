@@ -1,0 +1,36 @@
+# Bubble sort
+
+Integer[10] array = [10, 6, 4, 1, 2, 7, 5, 8, 9, 3];
+Integer arraySize = 10;
+Boolean swapped = True;
+while (swapped)
+{
+	Integer i = 0;
+	while (i < (arraySize - 1))
+	{
+		swapped = False;
+		Integer j = 0;
+		while (j < ((arraySize - i) - 1))
+		{
+			Integer lhs = array[j];
+			Integer rhs = array[j + 1];
+			if (lhs > rhs)
+			{
+				Integer tmp = array[j];
+				array[j] = array[j + 1];
+				array[j + 1] = tmp;
+				swapped = True;
+			}
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+}
+
+Integer i = 0;
+while (i < arraySize)
+{
+	Write("%d ", array[i]);
+	i = i + 1;
+}
+Write("\n");

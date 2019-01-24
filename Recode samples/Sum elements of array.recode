@@ -1,0 +1,49 @@
+# Sum elements of array
+
+Integer[2, 2, 2, 2] numbers = [
+	[
+		[
+			[1, 2],
+			[3, 4]
+		],
+		[
+			[5, 6],
+			[7, 8]
+		]
+	], 
+	[
+		[
+			[9, 10],
+			[11, 12]
+		],
+		[
+			[13, 14],
+			[15, 16]
+		]
+	]
+];
+
+Integer sum = 0;
+Integer lexa = 0;
+while (lexa < 2)
+{
+	Integer ilya = 0;
+	while (ilya < 2)
+	{
+		Integer rishat = 0;
+		while (rishat < 2)
+		{
+			Integer tema = 0;
+			while (tema < 2)
+			{
+				sum = sum + numbers[lexa, ilya, rishat, tema];
+				tema = tema + 1;
+			}
+			rishat = rishat + 1;
+		}
+		ilya = ilya + 1;
+	}
+	lexa = lexa + 1;
+}
+
+Write("%d\n", sum);

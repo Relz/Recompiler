@@ -1,0 +1,127 @@
+Program-<StatementList>[End of file]{Create AST node Program using 2}/Right curly bracket,Type,If keyword,While keyword,Identifier,Read function,End of file,Write function,For keyword,Left curly bracket
+L-[Minus]<ArithmeticMultiply><L>{Create AST node L using 3}/Minus
+L-<e>{Create AST node L using 0}/Semicolon,Boolean literal,Float,String literal,Identifier,Integer,Exponential,Left round bracket,Character literal,Left square bracket,Right square bracket,Right round bracket,Comma,Minus,Plus
+ArithmeticMinus-<ArithmeticMultiply><L>{Create AST node ArithmeticMinus using 2}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+IfCondition-[If keyword][Left round bracket]<Expression>[Right round bracket]{Create if statement}{Save post if statement to previous blocks}{Start block true}{Create AST node IfCondition using 4}/If keyword
+PossibleLiteralList-<PossibleLiteral><PossibleLiteralListExtension>{Create AST node PossibleLiteralList using 2}/Comma,Right square bracket,Exponential,Character literal,Integer,Float,Left square bracket,Boolean literal,String literal
+PossibleLiteralListExtension-[Comma]<PossibleLiteralList>{Create AST node PossibleLiteralListExtension using 2}/Comma
+PossibleLiteralListExtension-<e>{Create AST node PossibleLiteralListExtension using 0}/Right square bracket
+AssignmentRightHand-<Expression>{Create AST node AssignmentRightHand using 1}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+While-<WhileCondition><Statement>{Goto block pre while}{End block pre while}{Start block previous}{Create AST node While using 2}/While keyword
+Expression-<ArithmeticPlus>{Create AST node Expression using 1}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+LogicLessOrEquivalence-<LogicMoreEquivalence><K>{Create AST node LogicLessOrEquivalence using 2}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+Literal-[Exponential]{Create AST node Literal using 1}/Exponential
+Literal-<BooleanLiteral>{Create AST node Literal using 1}/Boolean literal
+Literal-<ArrayLiteral>{Create LLVM array literal}{Create AST node Literal using 1}/Left square bracket
+Literal-<FloatLiteral>{Create AST node Literal using 1}/Float
+Literal-<CharacterLiteral>{Create AST node Literal using 1}/Character literal
+Literal-<IntegerLiteral>{Create AST node Literal using 1}/Integer
+Literal-<StringLiteral>{Create AST node Literal using 1}/String literal
+StatementList-<Statement><StatementList>{Create AST node StatementList using 2}/Left curly bracket,For keyword,Write function,Read function,Identifier,While keyword,If keyword,Type
+StatementList-<e>{Create AST node StatementList using 0}/End of file,Right curly bracket
+ArithmeticModule-<LogicEquivalence><J>{Create AST node ArithmeticModule using 2}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+AssignmentSign-[Division assignment]{Create AST node AssignmentSign using 1}/Division assignment
+AssignmentSign-[Multiply assignment]{Create AST node AssignmentSign using 1}/Multiply assignment
+AssignmentSign-[Assignment]{Create AST node AssignmentSign using 1}/Assignment
+AssignmentSign-[Modulus assignment]{Create AST node AssignmentSign using 1}/Modulus assignment
+AssignmentSign-[Minus assignment]{Create AST node AssignmentSign using 1}/Minus assignment
+AssignmentSign-[Integer division assignment]{Create AST node AssignmentSign using 1}/Integer division assignment
+AssignmentSign-[Plus assignment]{Create AST node AssignmentSign using 1}/Plus assignment
+ArithmeticPlus-<ArithmeticMinus><I>{Create AST node ArithmeticPlus using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+RightCurlyBracket-[Right curly bracket]{Destroy scope}{Create AST node RightCurlyBracket using 1}/Right curly bracket
+SemicolonedAssignment-<Assignment>[Semicolon]{Create AST node SemicolonedAssignment using 2}/Identifier
+EnsureIdentifierIsExisting-<ExtendedIdentifier>{Check identifier for existing}{Create AST node EnsureIdentifierIsExisting using 1}/Identifier
+LeftCurlyBracket-[Left curly bracket]{Create scope}{Create AST node LeftCurlyBracket using 1}/Left curly bracket
+CharacterLiteral-[Character literal]{Create LLVM character literal}{Create AST node CharacterLiteral using 1}/Character literal
+BooleanLiteral-[Boolean literal]{Create LLVM boolean literal}{Create AST node BooleanLiteral using 1}/Boolean literal
+Assignment-<EnsureIdentifierIsExisting><AssignmentSign><AssignmentRightHand>{Check identifier type with AssignmentRightHand type for equality}{Update variable in scope}{Create AST node Assignment using 3}/Identifier
+WhileCondition-<WhileKeyword>[Left round bracket]<Expression>[Right round bracket]{Create block while}{Create while statement}{Start block while}{Create AST node WhileCondition using 4}/While keyword
+StatementFalse-<Statement>{Create AST node StatementFalse using 1}/Left curly bracket,For keyword,Write function,Read function,Identifier,While keyword,If keyword,Type
+ReferencedIdentifierList-<EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTableOrStringLiteral><ReferencedIdentifierListExtension>{Create AST node ReferencedIdentifierList using 2}/String literal,Identifier
+StatementListBlock-<LeftCurlyBracket><StatementList><RightCurlyBracket>{Create AST node StatementListBlock using 3}/Left curly bracket
+ExtendedIdentifier-[Identifier]<PossibleArrayAccessing>{Create AST node ExtendedIdentifier using 2}/Identifier
+FloatLiteral-[Float]{Create llvm float value}{Create AST node FloatLiteral using 1}/Float
+WriteExtra-[Comma]<ValuedIdentifierList>{Create AST node WriteExtra using 2}/Comma
+WriteExtra-<e>{Create AST node WriteExtra using 0}/Right round bracket
+VariableDeclarationA-<ExtendedType>[Identifier]{Check identifier for already existing}{Create AST node VariableDeclarationA using 2}/Type
+PossibleLiteral-<Literal>{Create AST node PossibleLiteral using 1}/String literal,Boolean literal,Left square bracket,Float,Character literal,Exponential,Integer
+PossibleLiteral-<e>{Create AST node PossibleLiteral using 0}/Right square bracket,Comma
+ExpressionList-<Expression><ExpressionListExtension>{Create AST node ExpressionList using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+VariableDeclaration-<VariableDeclarationA><AssignmentSign><AssignmentRightHand>{Check variable type with AssignmentRightHand type for equality}{Add variable to scope}{Create AST node VariableDeclaration using 3}/Type
+ExpressionListExtension-[Comma]<ExpressionList>{Create AST node ExpressionListExtension using 2}/Comma
+ExpressionListExtension-<e>{Create AST node ExpressionListExtension using 0}/Right square bracket
+WhileKeyword-[While keyword]{Create block pre while}{Goto block pre while}{Start block pre while}{Create AST node WhileKeyword using 1}/While keyword
+F-[Integer division]<ArithmeticModule><F>{Create AST node F using 3}/Integer division
+F-<e>{Create AST node F using 0}/Multiply,Integer,Plus,Comma,Right round bracket,Character literal,Left round bracket,Exponential,Identifier,String literal,Float,Right square bracket,Boolean literal,Left square bracket,Semicolon,Minus,Division
+ArithmeticMultiply-<ArithmeticDivision><H>{Create AST node ArithmeticMultiply using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+ArithmeticDivision-<ArithmeticIntegerDivision><G>{Create AST node ArithmeticDivision using 2}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+ArithmeticIntegerDivision-<ArithmeticModule><F>{Create AST node ArithmeticIntegerDivision using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+LogicEquivalence-<LogicNotEquivalence><E>{Create AST node LogicEquivalence using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+LogicNotEquivalence-<LogicMoreOrEquivalence><D>{Create AST node LogicNotEquivalence using 2}/Integer,Boolean literal,String literal,Identifier,Exponential,Left round bracket,Character literal,Float,Left square bracket,Minus
+If-<IfCondition><StatementTrue><Else>{Goto post if statement label}{Start block previous}{Create AST node If using 3}/If keyword
+For-[For keyword][Left round bracket]<VariableDeclaration>[Semicolon]<Expression>[Semicolon]<Assignment>[Right round bracket]<Statement>{Create AST node For using 9}/For keyword
+IntegerList-[Integer]<IntegerListExtension>{Create AST node IntegerList using 2}/Integer
+LogicMoreEquivalence-<LogicLessEquivalence><B>{Create AST node LogicMoreEquivalence using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+SemicolonedVariableDeclaration-<VariableDeclaration>[Semicolon]{Create AST node SemicolonedVariableDeclaration using 2}/Type
+LogicLessEquivalence-<ArithmeticNegate><A>{Create AST node LogicLessEquivalence using 2}/Integer,Exponential,Character literal,Float,Left square bracket,Boolean literal,String literal,Minus,Left round bracket,Identifier
+ReferencedIdentifierListExtension-[Comma]<ReferencedIdentifierList>{Create AST node ReferencedIdentifierListExtension using 2}/Comma
+ReferencedIdentifierListExtension-<e>{Create AST node ReferencedIdentifierListExtension using 0}/Right round bracket
+ArrayLiteral-[Left square bracket]<PossibleLiteralList>[Right square bracket]{Create AST node ArrayLiteral using 3}/Left square bracket
+ArithmeticNegate-[Left round bracket]<Expression>[Right round bracket]{Create AST node ArithmeticNegate using 3}/Left round bracket
+ArithmeticNegate-[Minus]<ArithmeticNegate>{Create AST node ArithmeticNegate using 2}/Minus
+ArithmeticNegate-<EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTable>{Create AST node ArithmeticNegate using 1}/Identifier
+ArithmeticNegate-<Literal>{Create AST node ArithmeticNegate using 1}/String literal,Boolean literal,Left square bracket,Float,Character literal,Exponential,Integer
+ValuedIdentifierList-<EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTable><ValuedIdentifierListExtension>{Create AST node ValuedIdentifierList using 2}/Identifier
+EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTable-<EnsureIdentifierIsExisting>{Try to load LLVM value from symbol table}{Create AST node EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTable using 1}/Identifier
+C-[More or equal]<LogicLessOrEquivalence><C>{Create AST node C using 3}/More or equal
+C-<e>{Create AST node C using 0}/Equivalence,Division,Integer division,Multiply,Right round bracket,Integer,Float,Plus,Left round bracket,Comma,Character literal,Minus,Exponential,Semicolon,Identifier,Right square bracket,Boolean literal,Left square bracket,String literal,Modulus,Not equivalence
+EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral-<EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTable>{Create AST node EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral using 1}/Identifier
+EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral-<StringLiteral>{Create AST node EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral using 1}/String literal
+Read-[Read function][Left round bracket]<EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral><ReadExtra>[Right round bracket][Semicolon]{Create AST node Read using 6}/Read function
+EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTable-<EnsureIdentifierIsExisting>{Try to reference LLVM value from symbol table}{Create AST node EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTable using 1}/Identifier
+EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTableOrStringLiteral-<EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTable>{Create AST node EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTableOrStringLiteral using 1}/Identifier
+EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTableOrStringLiteral-<StringLiteral>{Create AST node EnsureIdentifierIsExistingAndTryToReferenceLlvmValueFromSymbolTableOrStringLiteral using 1}/String literal
+Else-[Else keyword]<StatementFalse>{Create AST node Else using 2}/Else keyword
+Else-<e>{Create AST node Else using 0}/For keyword,Left curly bracket,Write function,End of file,Identifier,Read function,While keyword,Else keyword,If keyword,Type,Right curly bracket
+ReadExtra-[Comma]<ReferencedIdentifierList>{Create AST node ReadExtra using 2}/Comma
+ReadExtra-<e>{Create AST node ReadExtra using 0}/Right round bracket
+LogicMoreOrEquivalence-<LogicLessOrEquivalence><C>{Create AST node LogicMoreOrEquivalence using 2}/Minus,Left square bracket,Float,Character literal,Left round bracket,Exponential,Identifier,String literal,Boolean literal,Integer
+D-[Not equivalence]<LogicMoreOrEquivalence><D>{Create AST node D using 3}/Not equivalence
+D-<e>{Create AST node D using 0}/Modulus,String literal,Left square bracket,Boolean literal,Right square bracket,Identifier,Semicolon,Exponential,Minus,Character literal,Comma,Left round bracket,Plus,Float,Integer,Right round bracket,Multiply,Integer division,Division,Equivalence
+Write-[Write function][Left round bracket]<EnsureIdentifierIsExistingAndTryToLoadLlvmValueFromSymbolTableOrStringLiteral><WriteExtra>[Right round bracket][Semicolon]{Create AST node Write using 6}/Write function
+ValuedIdentifierListExtension-[Comma]<ValuedIdentifierList>{Create AST node ValuedIdentifierListExtension using 2}/Comma
+ValuedIdentifierListExtension-<e>{Create AST node ValuedIdentifierListExtension using 0}/Right round bracket
+PossibleArray-[Left square bracket]<IntegerList>[Right square bracket]{Create AST node PossibleArray using 3}/Left square bracket
+PossibleArray-<e>{Create AST node PossibleArray using 0}/Identifier
+IntegerListExtension-[Comma]<IntegerList>{Create AST node IntegerListExtension using 2}/Comma
+IntegerListExtension-<e>{Create AST node IntegerListExtension using 0}/Right square bracket
+A-[Less]<ArithmeticNegate><A>{Create AST node A using 3}/Less
+A-<e>{Create AST node A using 0}/Less or equal,Identifier,Modulus,String literal,Character literal,Comma,Left round bracket,Right square bracket,Minus,Plus,Boolean literal,Float,Semicolon,Integer,Right round bracket,Left square bracket,Multiply,Exponential,Integer division,Division,Equivalence,Not equivalence,More or equal,More
+IntegerLiteral-[Integer]{Create llvm integer value}{Create AST node IntegerLiteral using 1}/Integer
+B-[More]<LogicLessEquivalence><B>{Create AST node B using 3}/More
+B-<e>{Create AST node B using 0}/More or equal,Not equivalence,Equivalence,Division,Integer division,Exponential,Multiply,Left square bracket,Right round bracket,Integer,Semicolon,Float,Boolean literal,Plus,Minus,Right square bracket,Left round bracket,Comma,Character literal,String literal,Modulus,Identifier,Less or equal
+StatementTrue-<Statement>{Goto post if statement label}{Start block false}{Create AST node StatementTrue using 1}/Left curly bracket,For keyword,Write function,Read function,Identifier,While keyword,If keyword,Type
+E-[Equivalence]<LogicNotEquivalence><E>{Create AST node E using 3}/Equivalence
+E-<e>{Create AST node E using 0}/Integer division,Multiply,Right round bracket,Integer,Float,Plus,Left round bracket,Comma,Character literal,Minus,Exponential,Semicolon,Identifier,Right square bracket,Boolean literal,Left square bracket,Division,String literal,Modulus
+G-[Division]<ArithmeticIntegerDivision><G>{Create AST node G using 3}/Division
+G-<e>{Create AST node G using 0}/Minus,Semicolon,Left square bracket,Boolean literal,Right square bracket,Float,String literal,Identifier,Exponential,Left round bracket,Character literal,Right round bracket,Comma,Plus,Integer,Multiply
+StringLiteral-[String literal]{Create LLVM string literal}{Create AST node StringLiteral using 1}/String literal
+H-[Multiply]<ArithmeticDivision><H>{Create AST node H using 3}/Multiply
+H-<e>{Create AST node H using 0}/Plus,Comma,Right round bracket,Character literal,Left round bracket,Exponential,Integer,Identifier,String literal,Float,Right square bracket,Boolean literal,Left square bracket,Semicolon,Minus
+PossibleArrayAccessing-[Left square bracket]<ExpressionList>[Right square bracket]{Create AST node PossibleArrayAccessing using 3}/Left square bracket
+PossibleArrayAccessing-<e>{Create AST node PossibleArrayAccessing using 0}/More,More or equal,Not equivalence,Division,Integer division,Exponential,Left square bracket,Multiply,Semicolon,Float,Boolean literal,Plus,Integer,Minus,Right square bracket,Left round bracket,Comma,String literal,Character literal,Modulus,Identifier,Less or equal,Equivalence,Integer division assignment,Modulus assignment,Assignment,Division assignment,Minus assignment,Multiply assignment,Right round bracket,Plus assignment,Less
+I-[Plus]<ArithmeticMinus><I>{Create AST node I using 3}/Plus
+I-<e>{Create AST node I using 0}/Comma,Right round bracket,Right square bracket,Minus,Left square bracket,Character literal,Left round bracket,Exponential,Identifier,String literal,Float,Boolean literal,Integer,Semicolon
+J-[Modulus]<LogicEquivalence><J>{Create AST node J using 3}/Modulus
+J-<e>{Create AST node J using 0}/Division,Left square bracket,Boolean literal,Right square bracket,String literal,Identifier,Semicolon,Exponential,Minus,Character literal,Comma,Left round bracket,Plus,Float,Integer,Right round bracket,Multiply,Integer division
+ExtendedType-[Type]<PossibleArray>{Create AST node ExtendedType using 2}/Type
+Statement-<Read>{Create LLVM read function}{Create AST node Statement using 1}/Read function
+Statement-<For>{Create AST node Statement using 1}/For keyword
+Statement-<Write>{Create LLVM write function}{Create AST node Statement using 1}/Write function
+Statement-<While>{Create AST node Statement using 1}/While keyword
+Statement-<If>{Create AST node Statement using 1}/If keyword
+Statement-<SemicolonedVariableDeclaration>{Create AST node Statement using 1}/Type
+Statement-<SemicolonedAssignment>{Create AST node Statement using 1}/Identifier
+Statement-<StatementListBlock>{Create AST node Statement using 1}/Left curly bracket
+K-[Less or equal]<LogicMoreEquivalence><K>{Create AST node K using 3}/Less or equal
+K-<e>{Create AST node K using 0}/Modulus,String literal,Identifier,Character literal,Comma,Left round bracket,Right square bracket,Minus,Plus,Boolean literal,Float,Semicolon,Integer,Right round bracket,Left square bracket,Multiply,Exponential,Integer division,Division,Equivalence,Not equivalence,More or equal

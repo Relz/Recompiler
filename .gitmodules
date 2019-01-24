@@ -1,0 +1,6 @@
+[submodule "LLParserLibrary"]
+	path = LLParserLibrary
+	url = https://github.com/Relz/LL-Parser-Library
+[submodule "InputLibrary"]
+	path = InputLibrary
+	url = https://github.com/Relz/Input-Library

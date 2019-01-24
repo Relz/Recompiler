@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/InputLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/InputLibrary/StreamStringLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LLTableBuilderLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LLTableBuilderLibrary/InputLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LLTableBuilderLibrary/InputLibrary/StreamStringLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LLTableBuilderLibrary/TokenLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LLTableBuilderLibrary/TokenLibrary/StreamStringLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LexerLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LexerLibrary/InputLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LexerLibrary/InputLibrary/StreamStringLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LexerLibrary/TokenLibrary" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/LLParserLibrary/LexerLibrary/TokenLibrary/StreamStringLibrary" vcs="Git" />
+  </component>
+</project>

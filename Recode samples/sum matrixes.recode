@@ -1,0 +1,202 @@
+Integer[2, 2, 2, 2] numbers = [
+	[
+		[
+			[0, 0],
+			[0, 0]
+		],
+		[
+			[0, 0],
+			[0, 0]
+		]
+	],
+	[
+		[
+			[0, 0],
+			[0, 0]
+		],
+		[
+			[0, 0],
+			[0, 0]
+		]
+	]
+];
+
+Integer squareSize = 2;
+Integer elementCount = squareSize * squareSize * squareSize * squareSize;
+
+Integer currentElement = 0;
+
+Boolean break = False;
+while (break == False)
+{
+	Write("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+	if (currentElement == elementCount)
+	{
+		Write("Вы ввели такие данные:\n");
+	}
+	Integer currentI = 0;
+	if (currentElement > (elementCount // 2 - 1))
+	{
+		currentI = 1;
+	}
+	Integer currentJ = 1;
+	if (currentElement < (elementCount // 4))
+	{
+		currentJ = 0;
+	}
+	Integer tmp = 0;
+	while (tmp < 4)
+	{
+		if (currentElement == (elementCount // 2 + tmp))
+		{
+			currentJ = 0;
+		}
+		tmp = tmp + 1;
+	}
+	Integer currentK = 0;
+	if (currentElement == 2)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 3)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 6)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 7)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 10)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 11)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 14)
+	{
+		currentK = 1;
+	}
+	if (currentElement == 15)
+	{
+		currentK = 1;
+	}
+	Integer currentH = 0;
+	if (currentElement == 1)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 3)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 5)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 7)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 9)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 11)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 13)
+	{
+		currentH = 1;
+	}
+	if (currentElement == 15)
+	{
+		currentH = 1;
+	}
+	Integer i = 0;
+	while (i < squareSize)
+	{
+		Integer j = 0;
+		while (j < squareSize)
+		{
+			Integer k = 0;
+			while (k < squareSize)
+			{
+				Integer h = 0;
+				while (h < squareSize)
+				{
+					Boolean xShowed = False;
+					if (currentElement != elementCount)
+					{
+						if (i == currentI)
+						{
+							if (j == currentJ)
+							{
+								if (k == currentK)
+								{
+									if (h == currentH)
+									{
+										xShowed = True;
+										Write(" X ");
+									}
+								}
+							}
+						}
+					}
+					if (xShowed == False)
+					{
+						Write("%2d ", numbers[i, j, k, h]);
+					}
+					h = h + 1;
+				}
+				Write("\n");
+				k = k + 1;
+			}
+			Write("\n");
+			j = j + 1;
+		}
+		i = i + 1;
+	}
+	if (currentElement != elementCount)
+	{
+		Integer elementToSet = 0;
+		Write("Каким элементом заполнить 'X'?\n> ");
+		Read("%d", elementToSet);
+		numbers[currentI, currentJ, currentK, currentH] = elementToSet;
+	}
+	if (currentElement == elementCount)
+	{
+		break = True;
+	}
+	currentElement = currentElement + 1;
+}
+
+Write("Сумма матриц:\n");
+
+Integer sumA = 0;
+Integer sumB = 0;
+Integer sumC = 0;
+Integer sumD = 0;
+
+Integer i = 0;
+while (i < squareSize)
+{
+	Integer j = 0;
+	while (j < squareSize)
+	{
+		sumA = sumA + numbers[i, j, 0, 0];
+		sumB = sumB + numbers[i, j, 0, 1];
+		sumC = sumC + numbers[i, j, 1, 0];
+		sumD = sumD + numbers[i, j, 1, 1];
+		j = j + 1;
+	}
+	i = i + 1;
+}
+
+Write("%2d %2d\n%2d %2d\n", sumA, sumB, sumC, sumD);
