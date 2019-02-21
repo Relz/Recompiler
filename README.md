@@ -3,7 +3,7 @@
 
 # Презентация
 
-https://drive.google.com/open?id=1TgmdQSV1udmM_AjPmM8_GpUIFPEvDamPYiPgvwWZH-M
+https://github.com/Relz/Recompiler/blob/master/Recode.pptx
 
 Презентация описывает работу компилятора. Однако, без комментариев к слайдам, которые были преподнесены аудитории устно, не вижу данную презентацию самодостаточной.
 
